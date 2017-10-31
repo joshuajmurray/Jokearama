@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Jokearama</string>
+    <string name="reset_jokes">Reset</string>
+    <string name="joke_title_label">Knock knock.</string>
 </resources>
