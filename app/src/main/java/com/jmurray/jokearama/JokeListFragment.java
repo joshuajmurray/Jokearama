@@ -1,5 +1,6 @@
 package com.jmurray.jokearama;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -39,12 +41,13 @@ public class JokeListFragment extends Fragment {
         mJokeRecyclerView.setAdapter(mAdapter);
     }
 
-    private class JokeHolder extends RecyclerView.ViewHolder {
+    private class JokeHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView mNameTextView;
         private Joke mJoke;
 
         public JokeHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_joke, parent, false));
+            itemView.setOnClickListener(this);
 
             mNameTextView = (TextView) itemView.findViewById(R.id.joke_title);
         }
@@ -52,6 +55,12 @@ public class JokeListFragment extends Fragment {
         public void bind(Joke joke) {
             mJoke = joke;
             mNameTextView.setText(mJoke.getName());
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getActivity(), JokeActivity.class);
+            startActivity(intent);
         }
     }
 
