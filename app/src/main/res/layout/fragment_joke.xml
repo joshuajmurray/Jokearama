@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:weightSum="1">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:weightSum="1">
+
+    <TextView
+        android:id="@+id/joke_title"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Title"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/joke_one"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="0.09"
         android:gravity="left"
         android:text="Knock knock."
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginStart="36dp"
+        app:layout_constraintTop_toBottomOf="@+id/joke_title"/>
 
     <TextView
         android:id="@+id/joke_two"
@@ -33,7 +47,8 @@
         android:textSize="18dp"
         android:textStyle="italic"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joke_one"/>
+        app:layout_constraintTop_toBottomOf="@+id/joke_one"
+        android:layout_marginEnd="36dp"/>
 
     <TextView
         android:id="@+id/joke_three"
@@ -47,7 +62,8 @@
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joke_two"/>
+        app:layout_constraintTop_toBottomOf="@+id/joke_two"
+        android:layout_marginStart="36dp"/>
 
     <TextView
         android:id="@+id/joke_four"
@@ -61,7 +77,8 @@
         android:textSize="18dp"
         android:textStyle="italic"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joke_three"/>
+        app:layout_constraintTop_toBottomOf="@+id/joke_three"
+        android:layout_marginEnd="36dp"/>
 
     <TextView
         android:id="@+id/joke_five"
@@ -75,6 +92,7 @@
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joke_four"/>
+        app:layout_constraintTop_toBottomOf="@+id/joke_four"
+        android:layout_marginStart="36dp"/>
 
 </android.support.constraint.ConstraintLayout>

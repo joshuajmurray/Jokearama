@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -20,6 +22,12 @@ import java.util.List;
 public class JokeListFragment extends Fragment {
     private RecyclerView mJokeRecyclerView;
     private JokeAdapter mAdapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
@@ -41,6 +49,12 @@ public class JokeListFragment extends Fragment {
         mJokeRecyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_joke_list, menu);
+    }
+
     private class JokeHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView mNameTextView;
         private Joke mJoke;
@@ -59,7 +73,7 @@ public class JokeListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getActivity(), JokeActivity.class);
+            Intent intent = JokeActivity.newIntent(getActivity(), mJoke.getID());
             startActivity(intent);
         }
     }
